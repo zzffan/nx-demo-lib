@@ -1,0 +1,26 @@
+{
+    "name": "@demo-mono-repo/react-demo",
+    "version": "0.0.1",
+    "type": "module",
+    "main": "./dist/index.cjs.js",
+    "module": "./dist/index.es.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        "./package.json": "./package.json",
+        ".": {
+            "development": "./src/index.ts",
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.es.js",
+            "require": "./dist/index.cjs.js"
+        },
+        "./*": "./dist/*"
+    },
+    "files": [
+        "dist",
+        "es",
+        "lib"
+    ],
+    "scripts": {
+        "build": "vite build"
+    }
+}
