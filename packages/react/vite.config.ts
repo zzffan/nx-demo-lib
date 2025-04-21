@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import * as path from 'path';
 
 export default defineConfig(() => ({
@@ -21,7 +22,8 @@ export default defineConfig(() => ({
       tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
       insertTypesEntry: true,
       exclude: ['**/*.stories.tsx']
-    })
+    }),
+    libInjectCss()
   ],
   // Uncomment this if you are using workers.
   // worker: {

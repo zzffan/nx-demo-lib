@@ -22,5 +22,8 @@
     ],
     "scripts": {
         "build": "vite build"
-    }
+    },
+    "sideEffects": [
+        "**/*.css"
+    ]
 }
