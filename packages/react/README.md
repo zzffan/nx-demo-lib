@@ -1,7 +1,3 @@
-# @demo-mono-repo/demo
+# npmzzff-react-demo
 
-This library was generated with [Nx](https://nx.dev).
-
-## Running unit tests
-
-Run `nx test @demo-mono-repo/demo` to execute the unit tests via [Vitest](https://vitest.dev/).
+react组件库测试
