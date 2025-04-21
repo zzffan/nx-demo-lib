@@ -3,12 +3,17 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
+import cssModulesImport from './vite-plugin-css-modules-import'
 import * as path from 'path';
 
 export default defineConfig(() => ({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/packages/react',
   plugins: [
+    // cssModulesImport({
+    //   libDir: 'src',
+    //   include: [/src\/components\/.*\.tsx$/]
+    // }),
     react(),
     dts({
       entryRoot: 'src',
@@ -49,7 +54,8 @@ export default defineConfig(() => ({
           preserveModules: true,
           dir: 'es',
           exports: 'named',
-          preserveModulesRoot: 'src'
+          preserveModulesRoot: 'src',
+          assetFileNames: 'assets/[name].[ext]'
         },
         {
           format: 'cjs',
@@ -57,7 +63,8 @@ export default defineConfig(() => ({
           preserveModules: true,
           dir: 'lib',
           exports: 'named',
-          preserveModulesRoot: 'src'
+          preserveModulesRoot: 'src',
+          assetFileNames: 'assets/[name].[ext]'
         }
       ]
     },
