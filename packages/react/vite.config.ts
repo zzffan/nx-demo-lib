@@ -10,10 +10,17 @@ export default defineConfig(() => ({
   plugins: [
     react(),
     dts({
-        entryRoot: 'src',
-        tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
-        insertTypesEntry: true,
-        exclude: ['**/*.stories.tsx']
+      entryRoot: 'src',
+      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
+      insertTypesEntry: true,
+      exclude: ['**/*.stories.tsx']
+    }),
+    dts({
+      entryRoot: 'src',
+      outDir: 'lib',
+      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
+      insertTypesEntry: true,
+      exclude: ['**/*.stories.tsx']
     })
   ],
   // Uncomment this if you are using workers.
@@ -23,12 +30,12 @@ export default defineConfig(() => ({
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
   build: {
-    outDir: './dist',
+    outDir: 'es',
     emptyOutDir: true,
-    reportCompressedSize: true,
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
+    // reportCompressedSize: true,
+    // commonjsOptions: {
+    //   transformMixedEsModules: true,
+    // },
     minify: false,
     rollupOptions: {
       // External packages that should not be bundled into your library.
